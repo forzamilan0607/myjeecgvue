@@ -231,8 +231,7 @@
       this.showFlowData();
     },
     methods: {
-      downloadFile(url, fileName, parameter) {
-        alert(url)
+      downloadFile(url, fileName, parameter) {        
         return downFile(url, parameter).then((data) => {
           if (!data || data.size === 0) {
             Vue.prototype['$message'].warning('文件下载失败')
