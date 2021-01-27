@@ -89,6 +89,22 @@
             </td>  
           </tr>
           <tr>
+            <td>说明书</td>
+            <td>
+              <!-- <a :href="model.descriptionString" download="model.descriptionString">{{model.descriptionString}}</a> -->
+              <span v-if="!model.descriptionString" style="font-size: 12px;font-style: italic;">无文件</span>              
+              <a-button
+                v-else
+                :ghost="true"
+                type="primary"
+                icon="download"
+                size="small"
+                @click="downloadFile(model.descriptionString)">
+                下载
+              </a-button>
+            </td>  
+          </tr>
+          <tr>
             <td></td>
             <td>
               <a-li style="text-align: center">
@@ -99,48 +115,13 @@
       </table>   
       </a-form>
     </j-form-container>   
-    </a-card>
-   <!--  <j-form-container :disabled="formDisabled">
-      <a-form :form="form" slot="detail">
-        <ul>
-        
-          <li >
-            
-          </li>
-          <li >
-            <a-form-item label="下次检测日期" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <j-date placeholder="请选择下次检测日期" v-decorator="['nexttestdate']" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
-            </a-form-item>
-          </li>
-          <li  >
-            <a-form-item label="说明书" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <j-upload v-decorator="['description']" :trigger-change="true"  ></j-upload>
-            </a-form-item>
-          </li>
-          
-          <li>
-            <a-form-item label="状态" :labelCol="labelCol" :wrapperCol="wrapperCol">              
-              <a-select :getPopupContainer="(triggerNode)=>{ return triggerNode.parentNode}" v-decorator="['states']"  placeholder="请选择设备状态" >
-                <a-select-option v-for="item in devStatus" :key="item.value">{{item.text}}</a-select-option>
-              </a-select>
-            </a-form-item>
-          </li>
-          <li  >
-            <a-form-item label="备注" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <a-textarea v-decorator="['remarks']" rows="4" placeholder="请输入备注" />
-            </a-form-item>
-          </li>
-          
-        </a-row>
-        </ul>
-      </a-form>
-    </j-form-container> -->
+    </a-card>   
   </a-spin>
 </template>
 
 <script>
 
-  import { httpAction, getAction } from '@/api/manage'
+  import { httpAction, getAction, downFile } from '@/api/manage'
   import pick from 'lodash.pick'
   import { validateDuplicateValue } from '@/utils/util'
   import JFormContainer from '@/components/jeecg/JFormContainer'
@@ -250,6 +231,28 @@
       this.showFlowData();
     },
     methods: {
+      downloadFile(url, fileName, parameter) {
+        alert(url)
+        return downFile(url, parameter).then((data) => {
+          if (!data || data.size === 0) {
+            Vue.prototype['$message'].warning('文件下载失败')
+            return
+          }
+          if (typeof window.navigator.msSaveBlob !== 'undefined') {
+            window.navigator.msSaveBlob(new Blob([data]), fileName)
+          } else {
+            let url = window.URL.createObjectURL(new Blob([data]))
+            let link = document.createElement('a')
+            link.style.display = 'none'
+            link.href = url
+            link.setAttribute('download', fileName)
+            document.body.appendChild(link)
+            link.click()
+            document.body.removeChild(link) //下载完成移除元素
+            window.URL.revokeObjectURL(url) //释放掉blob对象
+          }
+        })
+      },
       add () {
         this.edit({});
       },
@@ -281,8 +284,7 @@
           if (!err) {
             that.confirmLoading = true;
             let httpurl = '';
-            let method = '';
-            alert("aaa");
+            let method = '';            
             if(!this.model.id){
               httpurl+=this.url.add;
               method = 'post';
