@@ -13,6 +13,12 @@
             <td >规格型号</td><td>{{model.model}}</td>
           </tr>
           <tr>
+            <td >放置地点</td><td>{{model.placementlocation}}</td>
+          </tr>
+          <tr>
+            <td >仪器，设备</td><td>{{model.instrumentandequipment}}</td>
+          </tr>
+         <!--  <tr>
             <td >生产厂家</td><td>{{model.manufacturer}}</td>
           </tr>
           <tr>
@@ -26,7 +32,7 @@
           </tr>
           <tr>
             <td >数量</td><td>{{model.quantity}}</td>
-          </tr>
+          </tr> -->
           <tr>
             <td >单价</td><td>{{model.unitprice}}</td>
           </tr>
@@ -38,24 +44,19 @@
           <tr>
             <td style="width:30%;">保养人</td><td>{{model.maintainer}}</td>            
           </tr>
-          <tr>
+          <!-- <tr>
             <td >仪器部门</td><td>{{model.instrunentdept}}</td>
-          </tr>
-          <tr>
-            <td >放置地点</td><td>{{model.placementlocation}}</td>
-          </tr>
-          <tr>
-            <td >仪器，设备</td><td>{{model.instrumentandequipment}}</td>
-          </tr>
+          </tr> -->
+          
           <tr>
             <td >性质类别</td><td>{{model.naturecategory}}</td>
           </tr>
           <tr>
             <td >重要性类别</td><td>{{model.importancecategory}}</td>
           </tr>         
-          <tr>
+          <!-- <tr>
             <td >出产编号</td><td>{{model.manufacturercode}}</td>
-          </tr>         
+          </tr>   -->       
         </table>      
     </a-card>
     <a-card title="检测登记" style="margin-left:5%;margin-right:5%;">
@@ -102,6 +103,14 @@
                 @click="downloadFile(model.descriptionString)">
                 下载
               </a-button>
+            </td>  
+          </tr>
+          <tr>
+            <td>维护保养记录</td>
+            <td>
+               <a-form-item>
+              <j-upload v-decorator="['description']" :trigger-change="true"  ></j-upload>
+            </a-form-item>
             </td>  
           </tr>
           <tr>
