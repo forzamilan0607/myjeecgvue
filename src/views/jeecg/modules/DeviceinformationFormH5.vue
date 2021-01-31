@@ -1,6 +1,6 @@
 <template>
   <a-spin :spinning="confirmLoading">
-    <a-card title="基本信息" style="margin-left:5%;margin-right:5%;">      
+    <a-card title="基本信息" style="margin-left:2%;margin-right:2%;">      
       
         <table class="mytbl">
           <tr>
@@ -109,9 +109,10 @@
           <tr>
             <td>维护保养记录</td>
             <td>
-               <a-form-item>
-              <j-upload v-decorator="['description']" :trigger-change="true"  ></j-upload>
-            </a-form-item>
+               <a-form-item> 
+			   <div v-html="model.maintenanceimgh5"/>
+			   <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload>
+               </a-form-item>
             </td>  
           </tr>
           <tr>
@@ -337,5 +338,9 @@
 }
 .ant-form-item {
   margin-bottom: 1px;
+}
+img {
+  width: 100%;
+  height: 100%;
 }
 </style>
