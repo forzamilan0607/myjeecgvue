@@ -18,6 +18,7 @@
           <tr>
             <td >仪器，设备</td><td>{{model.instrumentandequipment}}</td>
           </tr>
+          
          <!--  <tr>
             <td >生产厂家</td><td>{{model.manufacturer}}</td>
           </tr>
