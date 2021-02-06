@@ -21,7 +21,7 @@
     props: {
       title: {
         type: String,
-        default: 'Jeecg-Boot Pro',
+        default: 'Snipec Dev',
         required: false
       },
       showTitle: {

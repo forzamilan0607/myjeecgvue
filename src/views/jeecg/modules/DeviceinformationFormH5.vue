@@ -1,5 +1,7 @@
 <template>
   <a-spin :spinning="confirmLoading">
+    <j-form-container :disabled="formDisabled">
+      <a-form :form="form" slot="detail">
     <a-card title="基本信息" style="margin-left:2%;margin-right:2%;">      
       
         <table class="mytbl">
@@ -16,14 +18,15 @@
             <td >放置地点</td><td>{{model.placementlocation}}</td>
           </tr>
           <tr>
-            <td >仪器，设备</td><td>{{model.instrumentandequipment}}</td>
+            <td >仪器设备</td><td>{{model.instrumentandequipment}}</td>
           </tr>
-           <tr>
+           <!-- <tr>
             <td >单价</td><td>{{model.unitprice}}</td>
-          </tr>
+          </tr> -->
         </table>
       
     </a-card>
+    
     <a-card title="设备主要负责人" style="margin-left:2%;margin-right:2%;">
       <table class="mytbl">
           <tr>
@@ -49,7 +52,7 @@
             <td>校验证书</td>
             <td>
                <a-form-item> 
-			   <div v-html="model.selfcalibrationimgsh5"/>
+			   <!-- <div v-html="model.selfcalibrationimgsh5"/> -->
 			   <j-image-upload isMultiple  v-decorator="['selfcalibrationimgs']" ></j-image-upload>
                </a-form-item>
             </td>  
@@ -58,7 +61,7 @@
             <td style="width:30%;">上次检测日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择上次检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+                <j-date placeholder="请选择上次检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
               </a-form-item>
             </td>                      
           </tr>
@@ -66,15 +69,14 @@
             <td>本次检测日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择本次检测日期" v-decorator="['instrumenttestdatenew', validatorRules.instrumenttestdatenew]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+                <j-date placeholder="请选择本次检测日期" v-decorator="['instrumenttestdatenew', validatorRules.instrumenttestdatenew]" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
               </a-form-item>
             </td>  
           </tr>
 		   <tr>
             <td >检测周期</td><td>{{model.othercalibrationcycle}}</td>
           </tr>
-        </table>        
-        </table>      
+        </table>   
     </a-card>
 	
 	    <a-card title="校验类型（外校）" style="margin-left:2%;margin-right:2%;">
@@ -92,7 +94,7 @@
             <td>校验证书</td>
             <td>
                <a-form-item> 
-			   <div v-html="model.othercalibrationimgsh5"/>
+			   <!-- <div v-html="model.othercalibrationimgsh5"/> -->
 			   <j-image-upload isMultiple  v-decorator="['othercalibrationimgs']" ></j-image-upload>
                </a-form-item>
             </td>  
@@ -101,7 +103,7 @@
             <td style="width:30%;">上次检测日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择上次检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+                <j-date placeholder="请选择上次检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
               </a-form-item>
             </td>                      
           </tr>
@@ -109,7 +111,7 @@
             <td>本次检测日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择本次检测日期" v-decorator="['nexttestdatenew', validatorRules.nexttestdatenew]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+                <j-date placeholder="请选择本次检测日期" v-decorator="['nexttestdatenew', validatorRules.nexttestdatenew]" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
               </a-form-item>
             </td>  
           </tr>
@@ -124,8 +126,8 @@
     </a-card>
 	
     <a-card title="维护保养周期" style="margin-left:2%;margin-right:2%;">
-      <j-form-container :disabled="formDisabled">
-      <a-form :form="form" slot="detail">
+      <!-- <j-form-container :disabled="formDisabled">
+      <a-form :form="form" slot="detail"> -->
       <table class="mytbl">
           <tr>
             <td style="width:30%;">保养周期</td>
@@ -139,7 +141,7 @@
             <td>维护日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择维护日期" v-decorator="['maintenancedate', validatorRules.maintenancedate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+                <j-date placeholder="请选择维护日期" v-decorator="['maintenancedate', validatorRules.maintenancedate]" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
               </a-form-item>
             </td>  
           </tr>
@@ -173,8 +175,8 @@
             <td>维护保养记录</td>
             <td>
                <a-form-item> 
-			   <div v-html="model.maintenanceimgh5"/>
-			   <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload>
+			          <!-- <div v-html="model.maintenanceimgh5"/> -->			   
+                 <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload>
                </a-form-item>
             </td>  
           </tr>
@@ -187,9 +189,9 @@
             </td>
           </tr>
       </table>   
+    </a-card>
       </a-form>
-    </j-form-container>   
-    </a-card>   
+    </j-form-container>
   </a-spin>
 </template>
 
@@ -204,7 +206,7 @@
   import JImageUpload from '@/components/jeecg/JImageUpload'
 
   export default {
-    name: 'DeviceinformationForm',
+    name: 'DeviceinformationFormH5',
     components: {
       JFormContainer,
       JDate,
@@ -334,7 +336,7 @@
         this.model = Object.assign({}, record);
         this.visible = true;
         this.$nextTick(() => {
-          this.form.setFieldsValue(pick(this.model,'code','name','model','qrcodeString','manufacturer','instrumenttestdate','nexttestdatenew','manufacturercode','manufacturerdate','commissiondate','quantity','unitprice','maintainer','instrunentdept','placementlocation','instrumenttestdate','nexttestdate','descriptionString','instrumentandequipment','naturecategory','importancecategory','states','remarks'))
+          this.form.setFieldsValue(pick(this.model,'name','model','states','code','manufacturer','qrcodeStringUrl','manufacturercode','manufacturerdate','commissiondate','unitprice','maintainer','instrunentdept','placementlocation','descriptionString','selfcalibration','selfcalibrationcycle','instrumenttestdate','instrumenttestdatenew','selfcalibrationimgs','othercalibration','othercalibrationcycle','nexttestdate','nexttestdatenew','othercalibrationimgs','maintenancecycle','maintenancedate','maintenanceimg','remarks'))
         })
       },
       //渲染流程表单数据
