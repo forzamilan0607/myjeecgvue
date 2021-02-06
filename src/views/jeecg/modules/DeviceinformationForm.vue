@@ -100,10 +100,7 @@
           </a-col>
           <a-col :span="8">
             <a-form-item label="状态" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <!-- <a-input v-decorator="['states']" placeholder="请输入状态"  ></a-input> -->
-              <a-select :getPopupContainer="(triggerNode)=>{ return triggerNode.parentNode}" v-decorator="['states', validatorRules.states]"  placeholder="请选择设备状态" >
-                  <a-select-option v-for="item in devStatus" :key="item.value">{{item.text}}</a-select-option>
-                </a-select>
+              <a-input v-decorator="['states']" placeholder="请输入状态"  ></a-input>
             </a-form-item>
           </a-col>
           <a-col :span="8">
@@ -162,7 +159,6 @@
       return {
         form: this.$form.createForm(this),
         model: {},
-        devStatus: [{text:'完好',value:'完好'}, {text:'损坏',value:'损坏'}, {text:'报修',value:'报修'}],
         labelCol: {
           xs: { span: 24 },
           sm: { span: 5 },

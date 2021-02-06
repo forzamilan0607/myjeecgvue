@@ -18,65 +18,128 @@
           <tr>
             <td >仪器，设备</td><td>{{model.instrumentandequipment}}</td>
           </tr>
-          
-         <!--  <tr>
-            <td >生产厂家</td><td>{{model.manufacturer}}</td>
-          </tr>
-          <tr>
-            <td >出产编号</td><td>{{model.manufacturercode}}</td>
-          </tr>
-          <tr>
-            <td >出产日期</td><td>{{model.manufacturerdate}}</td>
-          </tr>
-          <tr>
-            <td >投产日期</td><td>{{model.commissiondate}}</td>
-          </tr>
-          <tr>
-            <td >数量</td><td>{{model.quantity}}</td>
-          </tr> -->
-          <tr>
+           <tr>
             <td >单价</td><td>{{model.unitprice}}</td>
           </tr>
         </table>
       
     </a-card>
-    <a-card title="设备主要负责人" style="margin-left:5%;margin-right:5%;">
+    <a-card title="设备主要负责人" style="margin-left:2%;margin-right:2%;">
       <table class="mytbl">
           <tr>
-            <td style="width:30%;">保养人</td><td>{{model.maintainer}}</td>            
-          </tr>
-          <!-- <tr>
-            <td >仪器部门</td><td>{{model.instrunentdept}}</td>
-          </tr> -->
-          
-          <tr>
-            <td >性质类别</td><td>{{model.naturecategory}}</td>
-          </tr>
-          <tr>
-            <td >重要性类别</td><td>{{model.importancecategory}}</td>
-          </tr>         
-          <!-- <tr>
-            <td >出产编号</td><td>{{model.manufacturercode}}</td>
-          </tr>   -->       
+            <td style="width:30%;">保养人</td><td>
+	 		<a-form-item> 
+		      <a-input v-decorator="['maintainer']" placeholder="请输入设备主要负责人"  ></a-input>
+		  </a-form-item>  </td>            
+          </tr>     
         </table>      
     </a-card>
-    <a-card title="检测登记" style="margin-left:5%;margin-right:5%;">
-      <j-form-container :disabled="formDisabled">
-      <a-form :form="form" slot="detail">
+	
+	    <a-card title="校验类型（自校）" style="margin-left:2%;margin-right:2%;">
       <table class="mytbl">
-          <tr>
-            <td style="width:30%;">仪器检测日期</td>
+         <tr>
+            <td>类型</td>
+            <td> 
+			<a-form-item> 
+		      <a-input v-decorator="['selfcalibration']" placeholder="请输入（自校）类型"  ></a-input>
+		  </a-form-item>  
+            </td>  
+          </tr>	 
+  <tr>
+            <td>校验证书</td>
+            <td>
+               <a-form-item> 
+			   <div v-html="model.selfcalibrationimgsh5"/>
+			   <j-image-upload isMultiple  v-decorator="['selfcalibrationimgs']" ></j-image-upload>
+               </a-form-item>
+            </td>  
+          </tr>		
+     <tr>
+            <td style="width:30%;">上次检测日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择仪器检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+                <j-date placeholder="请选择上次检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
               </a-form-item>
             </td>                      
           </tr>
           <tr>
-            <td>下次检测日期</td>
+            <td>本次检测日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择下次检测日期" v-decorator="['nexttestdate', validatorRules.nexttestdate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+                <j-date placeholder="请选择本次检测日期" v-decorator="['instrumenttestdatenew', validatorRules.instrumenttestdatenew]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+              </a-form-item>
+            </td>  
+          </tr>
+		   <tr>
+            <td >检测周期</td><td>{{model.othercalibrationcycle}}</td>
+          </tr>
+        </table>        
+        </table>      
+    </a-card>
+	
+	    <a-card title="校验类型（外校）" style="margin-left:2%;margin-right:2%;">
+      <table class="mytbl">
+         
+        <tr>
+            <td>类型</td>
+            <td> 
+			<a-form-item> 
+		      <a-input v-decorator="['othercalibration']" placeholder="请输入（外校）类型"  ></a-input>
+		  </a-form-item>  
+            </td>  
+          </tr>	 
+		 <tr>
+            <td>校验证书</td>
+            <td>
+               <a-form-item> 
+			   <div v-html="model.othercalibrationimgsh5"/>
+			   <j-image-upload isMultiple  v-decorator="['othercalibrationimgs']" ></j-image-upload>
+               </a-form-item>
+            </td>  
+          </tr>	 
+		    <tr>
+            <td style="width:30%;">上次检测日期</td>
+            <td>
+              <a-form-item>
+                <j-date placeholder="请选择上次检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+              </a-form-item>
+            </td>                      
+          </tr>
+          <tr>
+            <td>本次检测日期</td>
+            <td>
+              <a-form-item>
+                <j-date placeholder="请选择本次检测日期" v-decorator="['nexttestdatenew', validatorRules.nexttestdatenew]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
+              </a-form-item>
+            </td>  
+          </tr>
+		 <tr>
+            <td >检测周期</td><td>
+			<a-form-item> 
+		      <a-input v-decorator="['othercalibrationcycle']" placeholder="请输入保养周期"  ></a-input>
+		  </a-form-item>
+            </td>
+          </tr>
+        </table>      
+    </a-card>
+	
+    <a-card title="维护保养周期" style="margin-left:2%;margin-right:2%;">
+      <j-form-container :disabled="formDisabled">
+      <a-form :form="form" slot="detail">
+      <table class="mytbl">
+          <tr>
+            <td style="width:30%;">保养周期</td>
+            <td>
+              <a-form-item> 
+		      <a-input v-decorator="['maintenancecycle']" placeholder="请输入保养周期"  ></a-input>
+		  </a-form-item>
+            </td>                      
+          </tr>
+          <tr>
+            <td>维护日期</td>
+            <td>
+              <a-form-item>
+                <j-date placeholder="请选择维护日期" v-decorator="['maintenancedate', validatorRules.maintenancedate]" :trigger-change="true" :show-time="true" date-format="YYYY-MM-DD HH:mm:ss" style="width: 100%" />
               </a-form-item>
             </td>  
           </tr>
@@ -271,7 +334,7 @@
         this.model = Object.assign({}, record);
         this.visible = true;
         this.$nextTick(() => {
-          this.form.setFieldsValue(pick(this.model,'code','name','model','qrcodeString','manufacturer','manufacturercode','manufacturerdate','commissiondate','quantity','unitprice','maintainer','instrunentdept','placementlocation','instrumenttestdate','nexttestdate','descriptionString','instrumentandequipment','naturecategory','importancecategory','states','remarks'))
+          this.form.setFieldsValue(pick(this.model,'code','name','model','qrcodeString','manufacturer','instrumenttestdate','nexttestdatenew','manufacturercode','manufacturerdate','commissiondate','quantity','unitprice','maintainer','instrunentdept','placementlocation','instrumenttestdate','nexttestdate','descriptionString','instrumentandequipment','naturecategory','importancecategory','states','remarks'))
         })
       },
       //渲染流程表单数据
@@ -320,7 +383,7 @@
         })
       },
       popupCallback(row){
-        this.form.setFieldsValue(pick(row,'code','name','model','qrcodeString','manufacturer','manufacturercode','manufacturerdate','commissiondate','quantity','unitprice','maintainer','instrunentdept','placementlocation','instrumenttestdate','nexttestdate','descriptionString','instrumentandequipment','naturecategory','importancecategory','states','remarks'))
+        this.form.setFieldsValue(pick(row,'code','name','model','qrcodeString','manufacturer','manufacturercode','manufacturerdate','commissiondate','quantity','unitprice','maintainer','instrunentdept','placementlocation','instrumenttestdate','instrumenttestdatenew','nexttestdate','descriptionString','instrumentandequipment','naturecategory','importancecategory','states','remarks'))
       },
     }
   }
