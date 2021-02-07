@@ -159,14 +159,14 @@
             <td>说明书</td>
             <td>
               <!-- <a :href="model.descriptionString" download="model.descriptionString">{{model.descriptionString}}</a> -->
-              <span v-if="!model.descriptionString" style="font-size: 12px;font-style: italic;">无文件</span>              
+              <span v-if="!model.description" style="font-size: 12px;font-style: italic;">无文件</span>              
               <a-button
                 v-else
                 :ghost="true"
                 type="primary"
                 icon="download"
                 size="small"
-                @click="downloadFile(model.descriptionString)">
+                @click="downloadFile(model.description)">
                 下载
               </a-button>
             </td>  
@@ -336,7 +336,7 @@
         this.model = Object.assign({}, record);
         this.visible = true;
         this.$nextTick(() => {
-          this.form.setFieldsValue(pick(this.model,'name','model','states','code','manufacturer','qrcodeStringUrl','manufacturercode','manufacturerdate','commissiondate','unitprice','maintainer','instrunentdept','placementlocation','descriptionString','selfcalibration','selfcalibrationcycle','instrumenttestdate','instrumenttestdatenew','selfcalibrationimgs','othercalibration','othercalibrationcycle','nexttestdate','nexttestdatenew','othercalibrationimgs','maintenancecycle','maintenancedate','maintenanceimg','remarks'))
+          this.form.setFieldsValue(pick(this.model,'name','model','states','code','manufacturer','qrcodeStringUrl','manufacturercode','manufacturerdate','commissiondate','unitprice','maintainer','instrunentdept','placementlocation','description','selfcalibration','selfcalibrationcycle','instrumenttestdate','instrumenttestdatenew','selfcalibrationimgs','othercalibration','othercalibrationcycle','nexttestdate','nexttestdatenew','othercalibrationimgs','maintenancecycle','maintenancedate','maintenanceimg','remarks'))
         })
       },
       //渲染流程表单数据
@@ -385,7 +385,7 @@
         })
       },
       popupCallback(row){
-        this.form.setFieldsValue(pick(row,'code','name','model','qrcodeString','manufacturer','manufacturercode','manufacturerdate','commissiondate','quantity','unitprice','maintainer','instrunentdept','placementlocation','instrumenttestdate','instrumenttestdatenew','nexttestdate','descriptionString','instrumentandequipment','naturecategory','importancecategory','states','remarks'))
+        this.form.setFieldsValue(pick(row,'code','name','model','qrcodeString','manufacturer','manufacturercode','manufacturerdate','commissiondate','quantity','unitprice','maintainer','instrunentdept','placementlocation','instrumenttestdate','instrumenttestdatenew','nexttestdate','description','instrumentandequipment','naturecategory','importancecategory','states','remarks'))
       },
     }
   }

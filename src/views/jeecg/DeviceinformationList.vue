@@ -209,7 +209,7 @@
           {
             title:'说明书',
             align:"center",
-            dataIndex: 'descriptionString'
+            dataIndex: 'description'
           },
           {
             title:'自校类型',

@@ -265,7 +265,7 @@
         this.model = Object.assign({}, record);
         this.visible = true;
         this.$nextTick(() => {
-          this.form.setFieldsValue(pick(this.model,'name','model','states','code','manufacturer','qrcodeStringUrl','manufacturercode','manufacturerdate','commissiondate','unitprice','maintainer','instrunentdept','placementlocation','descriptionString','selfcalibration','selfcalibrationcycle','instrumenttestdate','instrumenttestdatenew','selfcalibrationimgs','othercalibration','othercalibrationcycle','nexttestdate','nexttestdatenew','othercalibrationimgs','maintenancecycle','maintenancedate','maintenanceimg','remarks'))
+          this.form.setFieldsValue(pick(this.model,'name','model','states','code','manufacturer','qrcodeStringUrl','manufacturercode','manufacturerdate','commissiondate','unitprice','maintainer','instrunentdept','placementlocation','description','selfcalibration','selfcalibrationcycle','instrumenttestdate','instrumenttestdatenew','selfcalibrationimgs','othercalibration','othercalibrationcycle','nexttestdate','nexttestdatenew','othercalibrationimgs','maintenancecycle','maintenancedate','maintenanceimg','remarks'))
         })
       },
       //渲染流程表单数据
@@ -311,7 +311,7 @@
         })
       },
       popupCallback(row){
-        this.form.setFieldsValue(pick(row,'name','model','states','code','manufacturer','qrcodeStringUrl','manufacturercode','manufacturerdate','commissiondate','unitprice','maintainer','instrunentdept','placementlocation','descriptionString','selfcalibration','selfcalibrationcycle','instrumenttestdate','instrumenttestdatenew','selfcalibrationimgs','othercalibration','othercalibrationcycle','nexttestdate','nexttestdatenew','othercalibrationimgs','maintenancecycle','maintenancedate','maintenanceimg','remarks'))
+        this.form.setFieldsValue(pick(row,'name','model','states','code','manufacturer','qrcodeStringUrl','manufacturercode','manufacturerdate','commissiondate','unitprice','maintainer','instrunentdept','placementlocation','description','selfcalibration','selfcalibrationcycle','instrumenttestdate','instrumenttestdatenew','selfcalibrationimgs','othercalibration','othercalibrationcycle','nexttestdate','nexttestdatenew','othercalibrationimgs','maintenancecycle','maintenancedate','maintenanceimg','remarks'))
       },
     }
   }
