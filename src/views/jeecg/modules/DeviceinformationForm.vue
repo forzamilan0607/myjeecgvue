@@ -72,7 +72,7 @@
             </a-form-item>
           </a-col>
           <a-col :span="12">
-            <a-form-item label="说明书" :labelCol="labelCol" :wrapperCol="wrapperCol">
+            <a-form-item label="操作规程" :labelCol="labelCol" :wrapperCol="wrapperCol">
               <j-upload v-decorator="['description']" :trigger-change="true"  ></j-upload>
             </a-form-item>
           </a-col>

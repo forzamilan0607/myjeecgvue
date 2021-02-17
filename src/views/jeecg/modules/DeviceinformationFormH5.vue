@@ -156,7 +156,7 @@
             </td>  
           </tr>
           <tr>
-            <td>说明书</td>
+            <td>操作规程</td>
             <td>
               <!-- <a :href="model.descriptionString" download="model.descriptionString">{{model.descriptionString}}</a> -->
               <span v-if="!model.description" style="font-size: 12px;font-style: italic;">无文件</span>              

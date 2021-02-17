@@ -207,7 +207,7 @@
             dataIndex: 'placementlocation'
           },
           {
-            title:'说明书',
+            title:'操作规程',
             align:"center",
             dataIndex: 'description'
           },
