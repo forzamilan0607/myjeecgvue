@@ -278,7 +278,7 @@
         },
         url: {
           add: "/device/deviceinformation/add",
-          edit: "/device/deviceinformation/edit",
+          edit: "/device/deviceinformation/edit2",
           queryById: "/device/deviceinformation/queryById"
         }
       }
