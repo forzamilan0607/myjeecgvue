@@ -37,13 +37,13 @@
             </a-form-item>
           </a-col>
           <a-col :span="12">
-            <a-form-item label="出产编号" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <a-input v-decorator="['manufacturercode']" placeholder="请输入出产编号"  ></a-input>
+            <a-form-item label="出厂编号" :labelCol="labelCol" :wrapperCol="wrapperCol">
+              <a-input v-decorator="['manufacturercode']" placeholder="请输入出厂编号"  ></a-input>
             </a-form-item>
           </a-col>
           <a-col :span="12">
-            <a-form-item label="出产日期" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <j-date placeholder="请选择出产日期" v-decorator="['manufacturerdate']" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
+            <a-form-item label="出厂日期" :labelCol="labelCol" :wrapperCol="wrapperCol">
+              <j-date placeholder="请选择出厂日期" v-decorator="['manufacturerdate']" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
             </a-form-item>
           </a-col>
           <a-col :span="12">
@@ -138,7 +138,8 @@
           </a-col>
           <a-col :span="12">
             <a-form-item label="维保记录" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload>
+              <!-- <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload> -->
+              <j-upload v-decorator="['maintenanceimg']" :trigger-change="true"  ></j-upload>
             </a-form-item>
           </a-col>
           <a-col :span="12">

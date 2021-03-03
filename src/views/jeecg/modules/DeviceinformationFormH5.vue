@@ -158,7 +158,7 @@
           <tr>
             <td>操作规程</td>
             <td>
-              <!-- <a :href="model.descriptionString" download="model.descriptionString">{{model.descriptionString}}</a> -->
+              <!-- <a :href="model.descriptionString" download="model.descriptionString">{{model.descriptionString}}</a> 
               <span v-if="!model.description" style="font-size: 12px;font-style: italic;">无文件</span>              
               <a-button
                 v-else
@@ -169,15 +169,23 @@
                 @click="downloadFile(model.description)">
                 下载
               </a-button>
+              -->
+              <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
+                <j-upload v-decorator="['description']" :trigger-change="true"  ></j-upload>
+              </a-form-item>
             </td>  
           </tr>
           <tr>
             <td>维护保养记录</td>
             <td>
+			          <!-- 
                <a-form-item> 
-			          <!-- <div v-html="model.maintenanceimgh5"/> -->			   
                  <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload>
                </a-form-item>
+                -->			   
+               <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
+                <j-upload v-decorator="['maintenanceimg']" :trigger-change="true"  ></j-upload>
+              </a-form-item>
             </td>  
           </tr>
           <tr>
