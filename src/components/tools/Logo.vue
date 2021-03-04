@@ -21,7 +21,7 @@
     props: {
       title: {
         type: String,
-        default: 'Snipec Dev',
+        default: '',
         required: false
       },
       showTitle: {

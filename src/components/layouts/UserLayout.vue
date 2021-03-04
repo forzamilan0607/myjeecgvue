@@ -5,7 +5,7 @@
         <div class="header">
           <a href="/">
             <img src="~@/assets/logo.svg" class="logo" alt="logo">
-            <span class="title">SNIPEC DEVICE MGR</span>
+            <!-- <span class="title">SNIPEC DEVICE MGR</span> -->
           </a>
         </div>
         <div class="desc">
