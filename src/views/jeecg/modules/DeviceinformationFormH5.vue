@@ -170,13 +170,34 @@
                 下载
               </a-button>
               -->
-              <a-form-item>
+              <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
                 <j-upload v-decorator="['description']" :trigger-change="true" />
               </a-form-item>
-              <div style="height:15px;"></div>
+              <div style="height:40px;"></div>
             </td>  
           </tr>
-          
+          <tr>
+            <td>维护保养记录</td>
+            <td>
+			          <!-- 
+               <a-form-item> 
+                 <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload>
+               </a-form-item>
+                -->			   
+               <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
+                <j-upload v-decorator="['maintenanceimg']" :trigger-change="true"  ></j-upload>
+              </a-form-item>
+              <div style="height:40px;"></div>
+            </td>  
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <a-li style="text-align: center">
+                  <a-button @click="submitForm">提 交</a-button>
+              </a-li>
+            </td>
+          </tr>
       </table>   
     </a-card>
       </a-form>
