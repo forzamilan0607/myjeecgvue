@@ -51,10 +51,13 @@
   <tr>
             <td>校验证书</td>
             <td>
-               <a-form-item> 
-			   <!-- <div v-html="model.selfcalibrationimgsh5"/> -->
-			   <j-image-upload isMultiple  v-decorator="['selfcalibrationimgs']" ></j-image-upload>
+               <!-- <a-form-item>
+                 <j-image-upload isMultiple  v-decorator="['selfcalibrationimgs']" ></j-image-upload>
+               </a-form-item> -->
+               <a-form-item>
+                 <j-upload v-decorator="['selfcalibrationimgs']" :trigger-change="true"  ></j-upload>
                </a-form-item>
+               <div style="height:40px;"></div>
             </td>  
           </tr>		
      <tr>
@@ -93,10 +96,13 @@
 		 <tr>
             <td>校验证书</td>
             <td>
-               <a-form-item> 
-			   <!-- <div v-html="model.othercalibrationimgsh5"/> -->
-			   <j-image-upload isMultiple  v-decorator="['othercalibrationimgs']" ></j-image-upload>
+               <!-- <a-form-item> 			   
+			            <j-image-upload isMultiple  v-decorator="['othercalibrationimgs']" ></j-image-upload>                  
+               </a-form-item> -->
+               <a-form-item>
+                 <j-upload v-decorator="['othercalibrationimgs']" :trigger-change="true"  ></j-upload>
                </a-form-item>
+               <div style="height:40px;"></div>
             </td>  
           </tr>	 
 		    <tr>
@@ -185,9 +191,9 @@
                </a-form-item>
                 -->			   
                <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
-                <j-upload v-decorator="['maintenanceimg']" :trigger-change="true"  ></j-upload>
-              </a-form-item>
-              <div style="height:40px;"></div>
+                 <j-upload v-decorator="['maintenanceimg']" :trigger-change="true"  ></j-upload>
+               </a-form-item>
+               <div style="height:40px;"></div>
             </td>  
           </tr>
           <tr>

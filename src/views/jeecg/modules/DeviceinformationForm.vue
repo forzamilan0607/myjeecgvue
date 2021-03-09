@@ -98,7 +98,8 @@
           </a-col>
           <a-col :span="12">
             <a-form-item label="自校证书" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <j-image-upload isMultiple  v-decorator="['selfcalibrationimgs']" ></j-image-upload>
+              <!-- <j-image-upload isMultiple  v-decorator="['selfcalibrationimgs']" ></j-image-upload> -->
+              <j-upload v-decorator="['selfcalibrationimgs']" :trigger-change="true"  ></j-upload>
             </a-form-item>
           </a-col>
           <a-col :span="12">
@@ -123,7 +124,8 @@
           </a-col>
           <a-col :span="12">
             <a-form-item label="外校证书" :labelCol="labelCol" :wrapperCol="wrapperCol">
-              <j-image-upload isMultiple  v-decorator="['othercalibrationimgs']" ></j-image-upload>
+              <!-- <j-image-upload isMultiple  v-decorator="['othercalibrationimgs']" ></j-image-upload> -->
+              <j-upload v-decorator="['othercalibrationimgs']" :trigger-change="true"  ></j-upload>
             </a-form-item>
           </a-col>
           <a-col :span="12">
