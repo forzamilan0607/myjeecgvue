@@ -2,7 +2,7 @@
   <a-spin :spinning="confirmLoading">
     <j-form-container :disabled="formDisabled">
       <a-form :form="form" slot="detail">
-    <a-card title="基本信息" style="margin-left:2%;margin-right:2%;">      
+    <a-card title="基本信息" style="margin-left:1%;margin-right:1%;">      
       
         <table class="mytbl">
           <tr>
@@ -27,7 +27,7 @@
       
     </a-card>
     
-    <a-card title="设备主要负责人" style="margin-left:2%;margin-right:2%;">
+    <a-card title="设备主要负责人" style="margin-left:1%;margin-right:1%;">
       <table class="mytbl">
           <tr>
             <td style="width:30%;">保养人</td><td>
@@ -79,7 +79,7 @@
         </table>   
     </a-card>
 	
-	    <a-card title="校验类型（外校）" style="margin-left:2%;margin-right:2%;">
+	    <a-card title="校验类型（外校）" style="margin-left:1%;margin-right:1%;">
       <table class="mytbl">
          
         <tr>
@@ -125,7 +125,7 @@
         </table>      
     </a-card>
 	
-    <a-card title="维护保养周期" style="margin-left:2%;margin-right:2%;">
+    <a-card title="维护保养周期" style="margin-left:1%;margin-right:1%;">
       <!-- <j-form-container :disabled="formDisabled">
       <a-form :form="form" slot="detail"> -->
       <table class="mytbl">
@@ -133,8 +133,8 @@
             <td style="width:30%;">保养周期</td>
             <td>
               <a-form-item> 
-		      <a-input v-decorator="['maintenancecycle']" placeholder="请输入保养周期"  ></a-input>
-		  </a-form-item>
+                  <a-input v-decorator="['maintenancecycle']" placeholder="请输入保养周期"  ></a-input>
+              </a-form-item>
             </td>                      
           </tr>
           <tr>
@@ -170,32 +170,13 @@
                 下载
               </a-button>
               -->
-              <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
-                <j-upload v-decorator="['description']" :trigger-change="true"  ></j-upload>
+              <a-form-item>
+                <j-upload v-decorator="['description']" :trigger-change="true" />
               </a-form-item>
+              <div style="height:15px;"></div>
             </td>  
           </tr>
-          <tr>
-            <td>维护保养记录</td>
-            <td>
-			          <!-- 
-               <a-form-item> 
-                 <j-image-upload isMultiple  v-decorator="['maintenanceimg']" ></j-image-upload>
-               </a-form-item>
-                -->			   
-               <a-form-item :labelCol="labelCol" :wrapperCol="wrapperCol">
-                <j-upload v-decorator="['maintenanceimg']" :trigger-change="true"  ></j-upload>
-              </a-form-item>
-            </td>  
-          </tr>
-          <tr>
-            <td></td>
-            <td>
-              <a-li style="text-align: center">
-                  <a-button @click="submitForm">提 交</a-button>
-              </a-li>
-            </td>
-          </tr>
+          
       </table>   
     </a-card>
       </a-form>
@@ -407,7 +388,8 @@
   color:rgba(0, 0, 0, 0.65);
   border: 1px solid #d9d9d9;
   border-radius: 4px;
-  padding: 7px;
+  padding: 5px;
+  word-break: break-all;
 }
 .ant-form-item {
   margin-bottom: 1px;
@@ -415,5 +397,13 @@
 img {
   width: 100%;
   height: 100%;
+}
+.ant-upload-list-item-name {
+    display: inline-block;
+    width: 100%;
+    padding-left: 22px;
+    overflow: hidden;
+    white-space: pre-wrap;
+    text-overflow: ellipsis;
 }
 </style>
