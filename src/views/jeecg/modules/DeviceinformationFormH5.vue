@@ -109,7 +109,7 @@
             <td style="width:30%;">上次检测日期</td>
             <td>
               <a-form-item>
-                <j-date placeholder="请选择上次检测日期" v-decorator="['instrumenttestdate', validatorRules.instrumenttestdate]" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
+                <j-date placeholder="请选择上次检测日期" v-decorator="['nexttestdate', validatorRules.nexttestdate]" :trigger-change="true" :show-time="false" date-format="YYYY-MM-DD" style="width: 100%" />
               </a-form-item>
             </td>                      
           </tr>
@@ -277,12 +277,22 @@
           } */
           instrumenttestdate: {
             rules: [
-              { required: true, message: '请选择仪器检测日期!'},
+              { required: true, message: '请选择设备自校上次检测日期!'},
+            ]
+          },
+          instrumenttestdatenew: {
+            rules: [
+              { required: true, message: '请选择设备自校本次检测日期!'},
             ]
           },
           nexttestdate: {
             rules: [
-              { required: true, message: '请选择仪器检测日期!'},
+              { required: true, message: '请选择设备外校上次检测日期!'},
+            ]
+          },
+          nexttestdatenew: {
+            rules: [
+              { required: true, message: '请选择设备外校本次检测日期!'},
             ]
           },
           states: {
