@@ -169,12 +169,12 @@
             dataIndex: 'manufacturer'
           },
           {
-            title:'出产编号',
+            title:'出厂编号',
             align:"center",
             dataIndex: 'manufacturercode'
           },
           {
-            title:'出产日期',
+            title:'出厂日期',
             align:"center",
             dataIndex: 'manufacturerdate'
           },
@@ -312,8 +312,8 @@
         fieldList.push({type:'string',value:'code',text:'设备编号',dictCode:''})
         fieldList.push({type:'string',value:'manufacturer',text:'生产厂家',dictCode:''})
         fieldList.push({type:'string',value:'qrcodeStringUrl',text:'二维码URL',dictCode:''})
-        fieldList.push({type:'string',value:'manufacturercode',text:'出产编号',dictCode:''})
-        fieldList.push({type:'datetime',value:'manufacturerdate',text:'出产日期'})
+        fieldList.push({type:'string',value:'manufacturercode',text:'出厂编号',dictCode:''})
+        fieldList.push({type:'datetime',value:'manufacturerdate',text:'出厂日期'})
         fieldList.push({type:'date',value:'commissiondate',text:'投产日期'})
         fieldList.push({type:'double',value:'unitprice',text:'单价',dictCode:''})
         fieldList.push({type:'string',value:'maintainer',text:'仪器负责人',dictCode:''})
